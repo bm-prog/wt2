@@ -1,0 +1,59 @@
+{
+  "stationCollection": [
+    {
+      "id": "8b301260-d267-11eb-a8f7-591ae1064ded",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Tramore",
+      "duration": 15,
+      "readings": [
+        {
+          "id": "04",
+          "code": "800",
+          "temperature": "0.5",
+          "genre": "Classical",
+          "duration": 5
+        },
+        {
+          "id": "05",
+          "name": "Piano Sonata No. 7",
+          "temperature": "6",
+          "genre": "Classical",
+          "duration": 6
+        },
+        {
+          "id": "06",
+          "name": "Piano Sonata No. 10",
+          "temperature": "8",
+          "genre": "Classical",
+          "duration": 4
+        },
+        {
+          "id": "f08a8f10-fc14-11eb-a3a3-21bbdce34967",
+          "name": "",
+          "artist": "",
+          "duration": 0
+        },
+        {
+          "id": "6c5564d0-fc24-11eb-8bc3-d3c8d5c9b876",
+          "name": "",
+          "artist": "",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "981720f0-fbbf-11eb-a71b-f76a85b8ab55",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "name": "Dunmore",
+      "readings": [
+        {
+          "id": "e3ccfe20-fc14-11eb-a3a3-21bbdce34967",
+          "name": "",
+          "artist": "",
+          "duration": 0
+        }
+      ],
+      "duration": 0
+    }
+  ]
+}

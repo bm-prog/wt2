@@ -1,0 +1,10 @@
+{{> menu}}
+
+<section class="ui center aligned middle aligned segment">
+  <h2 class="ui header">
+    {{station.name}}
+  </h2>
+  <h4> Total Duration: {{stationSummary.duration}}; Shortest reading: {{stationSummary.shortestReading.name}}</h4>
+  {{> listreadings}}
+  {{> addreading}}
+</section>

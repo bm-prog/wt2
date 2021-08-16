@@ -1,0 +1,39 @@
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>Reading</th>
+      <th>Temperature</th>
+      <th>Duration</th>
+<div>
+          <img src="public/images/bmsky.JPG" alt="" style="border: 50px inset lightgreen;"/>
+</div>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each station.readings}}
+      <tr>
+        <td>
+          {{name}}
+        </td>
+        <td>
+          {{temperature}}
+        </td>
+        <td>
+          {{duration}}
+        </td>
+        <td>
+          <a href="/reading/{{../station.id}}/editreading/{{id}}" class="ui icon button">
+            <i class="pencil alternate icon"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/station/{{../station.id}}/deletereading/{{id}}" class="ui icon button">
+            <i class="trash alternate outline icon"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
