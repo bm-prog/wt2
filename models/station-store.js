@@ -66,6 +66,7 @@ const stationStore = {
   updateReading(reading, updatedReading) {
     reading.name = updatedReading.name;
     reading.temperature = updatedReading.temperature;
+    reading.windSpeed = updatedReading.windSpeed;
     reading.duration = updatedReading.duration;
     this.store.save();
   }

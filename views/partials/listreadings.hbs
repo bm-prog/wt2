@@ -1,27 +1,33 @@
 <table class="ui table">
   <thead>
     <tr>
-      <th>Reading</th>
+      <th>Code</th>
       <th>Temperature</th>
-      <th>Duration</th>
+      <th>Wind Speed</th>
+      <th>Pressure</th>
+      <th>Wind Direction</th>
 <div>
-          <img src="public/images/bmsky.JPG" alt="" style="border: 50px inset lightgreen;"/>
+          <img src="https://cdn.glitch.com/3ba5fd23-b744-4e70-ac0e-ce57a580b9dc%2FIMG_8772.JPG?v=1629148482829" width="500", height="auto" alt="" style="border: 0.5px inset lightblue;"/>
 </div>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     {{#each station.readings}}
       <tr>
         <td>
-          {{name}}
+          {{code}}
         </td>
         <td>
           {{temperature}}
         </td>
         <td>
-          {{duration}}
+          {{windSpeed}}
+        </td>
+        <td>
+          {{pressure}}
+        </td>
+        <td>
+          {{windDirection}}
         </td>
         <td>
           <a href="/reading/{{../station.id}}/editreading/{{id}}" class="ui icon button">

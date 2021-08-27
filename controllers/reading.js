@@ -2,7 +2,6 @@
 
 const logger = require("../utils/logger");
 const stationStore = require("../models/station-store");
-//app.use(express.static('views/images')); //stackoverflow
 
 const reading = {
   index(request, response) {
@@ -19,11 +18,14 @@ const reading = {
 
   update(request, response) {
     const stationId = request.params.id;
-    const readingId = request.params.readingid;
+    const readingId = request.params.id;
     const reading = stationStore.getReading(stationId, readingId)
     const newReading = {
-      title: request.body.title,
+      code: request.body.code,
       temperature: request.body.temperature,
+      windSpeed: request.body.windSpeed,
+      pressure: request.body.pressure,
+      windDirection: request.body.windDirection,
       duration: Number(request.body.duration)
     };
     logger.debug(`Updating Reading ${readingId} from Station ${stationId}`);

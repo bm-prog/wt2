@@ -4,6 +4,11 @@ const logger = require("../utils/logger");
 const stationStore = require("../models/station-store");
 const stationAnalytics = require("../utils/station-analytics");
 const uuid = require("uuid");
+const stationReading = require("../models/station-store");
+
+function loggedInUserId() {
+
+}
 
 const station = {
   index(request, response) {
@@ -16,7 +21,7 @@ const station = {
 
       stationSummary : {
         shortestReading : stationAnalytics.getShortestReading(station),
-        duration : stationAnalytics.getStationDuration(station)
+        windSpeed : stationAnalytics.getStationDuration(station)
       }
     };
     response.render("station", viewData);
@@ -32,11 +37,15 @@ const station = {
 
   addReading(request, response) {
     const stationId = request.params.id;
-    const station = stationStore.getStation(stationId);
+    let station;
+    station = stationStore.getUserStations(loggedInUserId);
     const newReading = {
       id: uuid.v1(),
       name: request.body.name,
       temperature: request.body.temperature,
+      windSpeed: request.body.windSpeed,
+      pressure: request.body.pressure,
+      windDirection: request.body.windDirection,
       duration: Number(request.body.duration),
 
     };

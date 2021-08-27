@@ -1,7 +1,138 @@
 {{> menu id="dashboard"}}
 
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+</head>
+
+<body>
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<script>
+
+  var mymap = L.map('mapid').setView([53.305494, -7.737649], 10);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYm1vbiIsImEiOiJja3NyYzBkN3IwbGFhMm9vNnljdnltbW1pIn0.RVOvrbAnRlSXDb1Somm-dA', {
+    maxZoom: 7,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1
+  }).addTo(mymap);
+
+
+  L.circle([52.160858, -7.152420], 10000, {
+    color: 'red',
+    fillColor: '#26ff00',
+    fillOpacity: 0.3
+  }).addTo(mymap).bindPopup("Tramore Weather Station");
+
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mymap);
+  }
+
+  mymap.on('click', onMapClick);
+
+  L.circle([52.14752333, -6.990828889], 10000, {
+    color: 'red',
+    fillColor: '#26ff00',
+    fillOpacity: 0.3
+  }).addTo(mymap).bindPopup("Dunmore Weather Station");
+
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mymap);
+  }
+
+  mymap.on('click', onMapClick);
+
+  L.circle([53.489105, -10.020252], 10000, {
+    color: 'red',
+    fillColor: '#26ff00',
+    fillOpacity: 0.3
+  }).addTo(mymap).bindPopup("Clifden Weather Station");
+
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mymap);
+  }
+
+  mymap.on('click', onMapClick);
+
+</script>
+</body>
+
+
 <section class="ui segment">
   {{> liststations}}
   {{> addstation}}
 </section>
 
+<section class="ui raised segment">
+  <header class="ui header">
+    Latest Weather
+  </header>
+  {{> reading-table}}
+</section>
+
+<form class="ui stacked segment form" action="/dashboard/addreport" method="POST">
+  <div class="two fields">
+    <div class="field">
+      <label>Latitude</label> <input value="52.160858" type="text" name="lat">
+    </div>
+    <div class="field">
+      <label>Longitude</label> <input value="-7.152420" type="text" name="lng">
+    </div>
+  </div>
+  <button class="ui blue submit button">Add Report</button>
+</form>
+<div class="ui segment" id="chart"></div>
+
+<script>
+  const data = {
+    labels: [
+      {{#each reading.trendLabels}}
+        "{{this}}",
+      {{/each}}
+    ],
+    datasets: [
+      {
+        name: "Temperature", type: "line",
+        values: [
+          {{#each reading.tempTrend}}
+            {{this}},
+          {{/each}}
+        ]
+      }
+    ]
+  }
+
+  const chart = new frappe.Chart("#chart", {
+    title: "Temperature Trend",
+    data: data,
+    type: 'line',
+    height: 250,
+  })
+</script>
+</section>
