@@ -1,17 +1,54 @@
-<table class="ui table">
+<table class="ui five huge doubling inverted cards">
   <thead>
-    <tr>
-      <th>Code</th>
-      <th>Temperature</th>
-      <th>Wind Speed</th>
-      <th>Pressure</th>
-      <th>Wind Direction</th>
-<div>
-          <img src="https://cdn.glitch.com/3ba5fd23-b744-4e70-ac0e-ce57a580b9dc%2FIMG_8772.JPG?v=1629148482829" width="500", height="auto" alt="" style="border: 0.5px inset lightblue;"/>
-</div>
-    </tr>
+
+    <div>
+      <img src="https://cdn.glitch.com/3ba5fd23-b744-4e70-ac0e-ce57a580b9dc%2FIMG_8772.JPG?v=1629148482829" width="300", height="auto" alt="" style="border: 0.5px inset lightblue;"/>
+    </div>
+  <br></br>
   </thead>
   <tbody>
+  <tr>
+    <section>
+      <th>
+        <i class="ui card">
+          Code
+            <i class="huge violet marker icon"></i>
+      </th>
+    </section>
+
+    <section>
+      <th>
+        <i class="ui card">
+          Temperature
+            <i class="huge blue temperature low icon"></i>
+      </th>
+    </section>
+
+    <section>
+      <th>
+        <i class="ui card">
+         Wind Speed
+            <i class="huge green wind icon"></i>
+      </th>
+    </section>
+
+    <section>
+      <th>
+      <i class="ui card">
+        Pressure
+      <i class="huge orange centos icon"></i>
+    </th>
+    </section>
+
+    <section>
+      <th>
+        <i class="ui card">
+          Wind Direction
+            <i class="huge red angle double right icon"></i>
+      </th>
+    </section>
+
+  </tr>
     {{#each station.readings}}
       <tr>
         <td>

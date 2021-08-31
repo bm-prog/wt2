@@ -29,6 +29,24 @@
           "windSpeed": 1,
           "pressure": 1005,
           "windDirection": 101
+        },
+        {
+          "id": "84dbe6d0-0743-11ec-b409-31125b1c7510",
+          "name": "",
+          "temperature": "",
+          "windSpeed": "",
+          "pressure": "",
+          "windDirection": "",
+          "duration": null
+        },
+        {
+          "id": "8caa8df0-0a4d-11ec-803b-1bd9b0bb355a",
+          "name": "",
+          "temperature": "",
+          "windSpeed": "",
+          "pressure": "",
+          "windDirection": "",
+          "duration": null
         }
       ]
     },
